@@ -4,17 +4,19 @@ const Title = ({text}) => <h1>{text}</h1>
 
 const Button = ({onClick, label}) => <button onClick={onClick}>{label}</button>
 
+const StatisticLine = ({text, value}) => <p>{text} {value}</p>
+
 const Statistics = ({good, neutral, bad}) => {
   const total = good + neutral + bad
   
   if (total > 0) {
     return (<>
-    <p>good {good}</p>
-    <p>neutral {neutral}</p>
-    <p>bad {bad}</p>
-    <p>total {total}</p>
-    <p>average {(good - bad) / total || 0}</p>
-    <p>positive {good / total * 100 || 0}%</p>
+    <StatisticLine text="good" value={good} />
+    <StatisticLine text="neutral" value={neutral} />
+    <StatisticLine text="bad" value={bad} />
+    <StatisticLine text="all" value={total} />
+    <StatisticLine text="average" value={(good - bad) / total} />
+    <StatisticLine text="positive" value={`${good / total * 100}%`} />
     </>)
   }
 
