@@ -7,14 +7,18 @@ const Button = ({onClick, label}) => <button onClick={onClick}>{label}</button>
 const Statistics = ({good, neutral, bad}) => {
   const total = good + neutral + bad
   
-  return (<>
-  <p>good {good}</p>
-  <p>neutral {neutral}</p>
-  <p>bad {bad}</p>
-  <p>total {total}</p>
-  <p>average {(good - bad) / total || 0}</p>
-  <p>positive {good / total * 100 || 0}%</p>
-  </>)
+  if (total > 0) {
+    return (<>
+    <p>good {good}</p>
+    <p>neutral {neutral}</p>
+    <p>bad {bad}</p>
+    <p>total {total}</p>
+    <p>average {(good - bad) / total || 0}</p>
+    <p>positive {good / total * 100 || 0}%</p>
+    </>)
+  }
+
+  return <p>No feedback given</p>
 }
 
 const App = () => {
@@ -24,18 +28,15 @@ const App = () => {
   const [bad, setBad] = useState(0)
 
   const handleGoodClick = () => {
-    const newGood = good + 1
-    setGood(newGood)
+    setGood(good + 1)
   }
 
   const handleNeutralClick = () => {
-    const newNeutral = neutral + 1
-    setNeutral(newNeutral)
+    setNeutral(neutral + 1)
   }
 
   const handleBadClick = () => {
-    const newBad = bad + 1
-    setBad(newBad)
+    setBad(bad + 1)
   }
 
   return (
