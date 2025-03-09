@@ -25,7 +25,7 @@ const App = () => {
 
   const addPerson = (event) => {
     event.preventDefault();
-    const noteObject = {
+    const personObject = {
       name: newName,
       number: newNumber
     };
@@ -35,8 +35,14 @@ const App = () => {
       alert(`${newName} is already added to phonebook`)
       return;
     }
+
+    
+    axios
+      .post('http://localhost:3001/persons', personObject)
+      .then(response => {
+        setPersons(persons.concat(response.data))
+      })
   
-    setPersons(persons.concat(noteObject))
     setNewName('')
     setNewNumber('')
   }
