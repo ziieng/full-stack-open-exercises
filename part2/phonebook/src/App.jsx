@@ -23,6 +23,14 @@ const App = () => {
       })
   }, [])
 
+  const removePerson = (id) => {
+    const person = persons.find(person => person.id === id)
+    if (window.confirm(`Delete ${person.name}?`)) {
+      personService.remove(id)
+      setPersons(persons.filter(person => person.id !== id))
+    }
+  }
+
   const addPerson = (event) => {
     event.preventDefault();
     const personObject = {
@@ -75,7 +83,7 @@ const App = () => {
         onNumberChanged={handleNumberChanged}
       />
       <h2>Numbers</h2>
-      <Persons persons={displayPersons} />
+      <Persons persons={displayPersons} onRemove={removePerson} />
     </div>
   )
 }
