@@ -1,1 +1,11 @@
-GET http://localhost:3001/api/notes
+GET http://localhost:3001/api/notes/
+
+###
+
+PUT http://localhost:3001/api/notes/67e47914850e8e5dfa0fe8fd
+Content-Type: application/json
+
+{
+  "content": "HTML is super easy",
+  "important": false
+}

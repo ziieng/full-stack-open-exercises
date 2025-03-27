@@ -2,6 +2,6 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-  "content": "A new note",
+  "content": "VS Code can send HTTP requests",
   "important": true
 }
