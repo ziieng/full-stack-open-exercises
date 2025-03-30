@@ -1,0 +1,19 @@
+{
+  "name": "bloglist",
+  "version": "1.0.0",
+  "description": "Application for part 4's exercises in Full Stack Open course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.1"
+  }
+}
