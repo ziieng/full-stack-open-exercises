@@ -83,3 +83,57 @@ describe("favorite blog helper", () => {
     assert.deepStrictEqual(result,expectedResult);
   });
 });
+
+describe("most blogs helper", () => {
+  test("when list is empty, returns null", () => {
+    const blogs = [];
+
+    const result = listHelper.mostBlogs(blogs);
+    assert.deepStrictEqual(result, null);
+  });
+
+  test("when list has one blog, returns that author with 1 blog", () => {
+    const expectedResult = {
+      author: "Edsger W. Dijkstra",
+      blogs: 1
+    }
+    const result = listHelper.mostBlogs(listWithOneBlog);
+    assert.deepStrictEqual(result, expectedResult)
+  })
+
+  test("when list has many blogs, returns the author with the most blogs", () => {
+    const expectedResult = {
+      author: "Some Lady",
+      blogs: 2
+    }
+    const result = listHelper.mostBlogs(listWithManyBlogs);
+    assert.deepStrictEqual(result, expectedResult);
+  });
+})
+
+describe("most likes helper", () => {
+  test("when list is empty, returns null", () => {
+    const blogs = [];
+
+    const result = listHelper.mostLikes(blogs);
+    assert.deepStrictEqual(result, null);
+  });
+
+  test("when list has one blog, returns that author with their likes", () => {
+    const expectedResult = {
+      author: "Edsger W. Dijkstra",
+      likes: 5
+    }
+    const result = listHelper.mostLikes(listWithOneBlog);
+    assert.deepStrictEqual(result, expectedResult)
+  })
+
+  test("when list has many blogs, returns the author with the most likes", () => {
+    const expectedResult = {
+      author: "Some Lady",
+      likes: 25
+    }
+    const result = listHelper.mostLikes(listWithManyBlogs);
+    assert.deepStrictEqual(result, expectedResult);
+  });
+})
